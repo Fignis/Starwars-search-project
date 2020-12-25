@@ -14,7 +14,7 @@ body {
   font-family: "Raleway";
   height: 100vh;
   color: black;
-  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -26,12 +26,14 @@ body::-webkit-scrollbar-thumb {
   background: var(--scolor);
 }
 main {
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%),
+    no-repeat;
   margin-left: 5rem;
   padding: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 75vh;
+  height: 100vh;
 }
 
 .navbar {
@@ -87,7 +89,19 @@ main {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100%;
+  min-height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.rescontainer {
+  display: flex;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  justify-items: space-evenly;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  min-height: 100%;
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -104,26 +118,35 @@ main {
   place-items: center;
 }
 input {
+  display: flex;
   border-radius: 11px;
   margin-bottom: 10px;
-  padding: 12px;
+  padding: 12px 1rem 12px 1rem;
+  font-size: 20px;
+  font-weight: 300;
   color: var(--bg-prim);
+  transition: all 1s;
 }
-#button {
-  background-color: inherit;
-  color: var(--text);
-  padding: 5px;
-  font-size: 16px;
-  font-weight: 700;
-  padding-left: 30px;
-  padding-right: 30px;
-  border-radius: 24px;
-  border: 4px solid var(--text);
+input:focus {
+  box-shadow: 0 30px 45px -15px rgba(16, 255, 243, 0.623);
+  transform: scale(1.07);
+  outline: none;
 }
-
+@keyframes big {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
 .data {
   color: var(--text2);
   font-weight: 700;
+  background: var(--bg-sec);
+  padding: 0 0.5rem 0 0.5rem;
+  width: 500px;
+  overflow-wrap: break-word;
 }
 /* display: block;
   align-items: center;
@@ -158,4 +181,29 @@ input {
   100% {
     transform: translateY(0);
   }
+}
+.novisible {
+  animation: fade 1.5s all;
+}
+@keyframes fade {
+  0% {
+    opacity: 100%;
+  }
+  50% {
+    opacity: 50%;
+  }
+  100% {
+    opacity: 0%;
+    display: none;
+  }
+}
+.icon {
+  display: block;
+  flex-grow: 1;
+  width: 2px;
+  color: #23232e;
+  position: absolute;
+  margin-top: 1rem;
+  z-index: 0;
+  margin-left: 16rem;
 }
