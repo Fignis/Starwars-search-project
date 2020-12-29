@@ -37,8 +37,6 @@ main {
 }
 
 .navbar {
-  width: 5rem;
-  height: 100vh;
   position: fixed;
   background: var(--text2);
   transition: width 200ms ease;
@@ -77,12 +75,7 @@ main {
   min-width: 2rem;
   margin: 0 1.5rem;
 }
-.navbar:hover {
-  width: 13rem;
-}
-.navbar:hover .link-text {
-  display: block;
-}
+
 .container {
   display: flex;
   justify-items: space-evenly;
@@ -185,6 +178,25 @@ input:focus {
 .novisible {
   animation: fade 1.5s all;
 }
+#redirbutt {
+  display: none;
+  padding: 1rem;
+  border-radius: 1rem;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+}
+#redirbutt:hover {
+  transform: scale(1.03);
+}
+.visible {
+  display: block;
+  opacity: 1;
+}
 @keyframes fade {
   0% {
     opacity: 100%;
@@ -198,6 +210,7 @@ input:focus {
   }
 }
 .icon {
+  cursor: pointer;
   display: block;
   flex-grow: 1;
   width: 2px;
@@ -206,4 +219,41 @@ input:focus {
   margin-top: 1rem;
   z-index: 0;
   margin-left: 16rem;
+}
+@media only screen and (max-width: 600px) {
+  .navbar {
+    bottom: 0;
+    width: 100vw;
+    height: 5rem;
+    background-color: #23232e;
+  }
+  .navbar-nav {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .n-link {
+    justify-content: center;
+  }
+
+  main {
+    margin: 0;
+  }
+  .title {
+    line-height: 3rem;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .navbar {
+    top: 0;
+    width: 5rem;
+    height: 100vh;
+  }
+  .navbar:hover {
+    width: 13rem;
+  }
+  .navbar:hover .link-text {
+    display: inline;
+    transition: opacity var(--trans-speed);
+  }
 }

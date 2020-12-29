@@ -37,9 +37,10 @@ async function req() {
   display(fData);
   resultCon.classList.add("rescontainer");
   smooth(dat);
+  redirButton.style.display = "block";
 }
 function smooth(button) {
-  button.scrollIntoView({ block: "center", behavior: "smooth" });
+  button.scrollIntoView({ block: "start", behavior: "smooth" });
 }
 //displays the data
 function display(data) {
@@ -63,8 +64,9 @@ input.addEventListener("keyup", function (e) {
 });
 const redir = () => {
   smooth(logo);
-  dat.innerText = "";
+  dat.innerText = " ";
   resultCon.classList.toggle("rescontainer");
+  redirButton.style.display = "none";
 };
 
 button.addEventListener("click", req);
